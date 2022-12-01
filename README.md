@@ -47,7 +47,6 @@
 | [14][d14] | [☆☆][s14] |
 | [15][d15] | [☆☆][s15] |
 | [16][d16] | [☆☆][s16] |
-| [16][d16] | [☆☆][s16] |
 | [17][d17] | [☆☆][s17] |
 | [18][d18] | [☆☆][s18] |
 | [19][d19] | [☆☆][s19] |
@@ -74,7 +73,6 @@
 [d14]: https://adventofcode.com/2022/day/14
 [d15]: https://adventofcode.com/2022/day/15
 [d16]: https://adventofcode.com/2022/day/16
-[d16]: https://adventofcode.com/2022/day/16
 [d17]: https://adventofcode.com/2022/day/17
 [d18]: https://adventofcode.com/2022/day/18
 [d19]: https://adventofcode.com/2022/day/19
@@ -100,7 +98,6 @@
 [s13]: src/main/kotlin/Day13.kt
 [s14]: src/main/kotlin/Day14.kt
 [s15]: src/main/kotlin/Day15.kt
-[s16]: src/main/kotlin/Day16.kt
 [s16]: src/main/kotlin/Day16.kt
 [s17]: src/main/kotlin/Day17.kt
 [s18]: src/main/kotlin/Day18.kt
