@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 
-@DisplayName("Day 07")
+@DisplayName("Day 07 (FileSystem)")
 class Day07Test {
 
     private val sampleInput = readLines("Day07-sample.txt")
@@ -15,8 +15,7 @@ class Day07Test {
     inner class Part1 {
 
         @Test
-        fun `Matches example`() =
-            assertEquals(
+        fun `Matches example`() = assertEquals(
             expected = 95437,
             actual = Day07(sampleInput).part1(),
         )
