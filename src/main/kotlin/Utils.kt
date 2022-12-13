@@ -9,3 +9,9 @@ fun <T> Sequence<T>.takeWhileInclusive(predicate: (T) -> Boolean): Sequence<T> {
     var shouldContinue = true
     return takeWhile { shouldContinue.also { _ -> shouldContinue = predicate(it) } }
 }
+
+@JvmName("intProduct")
+fun Iterable<Int>.product(): Long = fold(1L, Long::times)
+
+@JvmName("longProduct")
+fun Iterable<Long>.product(): Long = fold(1L, Long::times)

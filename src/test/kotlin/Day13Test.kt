@@ -29,7 +29,6 @@ class Day13Test {
 
     }
 
-    @Ignore
     @Nested
     @DisplayName("Part 2")
     inner class Part2 {
@@ -42,7 +41,7 @@ class Day13Test {
 
         @Test
         fun `Actual answer`() = assertEquals(
-            expected = 0,
+            expected = 19570,
             actual = Day13(actualInput).part2(),
         )
 

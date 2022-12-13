@@ -4,15 +4,19 @@ class Day13(val input: List<String>) {
         .withIndex().filter { it.value }
         .sumOf { it.index.inc() }
 
-    fun part2(): Int = TODO()
+    private val dividers = setOf("[[2]]", "[[6]]")
+    fun part2(): Long = input.asSequence().filter(String::isNotEmpty).plus(dividers)
+        .sortedWith { o1, o2 -> if ((o1 to o2).parse()) -1 else 1 }
+        .withIndex().filter { it.value in dividers }
+        .map { it.index.inc() }.toList()
+        .product()
 
     private fun String.element(index: Int): IndexedValue<Element?> = when (getOrNull(index)) {
         null -> IndexedValue(index, null)
         '[' -> IndexedValue(index + 1, Start)
         ']' -> IndexedValue(index + 1, End)
         ',' -> element(index.inc())
-        else -> {
-            val number = drop(index).splitToSequence("[", "]", ",").first()
+        else -> drop(index).splitToSequence("[", "]", ",").first().let { number ->
             IndexedValue(index + number.length, Value(number.toInt()))
         }
     }
@@ -51,7 +55,7 @@ class Day13(val input: List<String>) {
                 }
                 // Both values are Start or End
                 r == l -> Unit
-                else -> error("$l & $r")
+                else -> Unit
             }
             indexes = indexes.copy(first = lIdx, second = rIdx)
         }
