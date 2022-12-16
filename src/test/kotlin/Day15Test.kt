@@ -2,7 +2,6 @@ import Resources.readLines
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
-import kotlin.test.Ignore
 import kotlin.test.assertEquals
 
 @DisplayName("Day 15")
@@ -29,21 +28,20 @@ class Day15Test {
 
     }
 
-    @Ignore
     @Nested
     @DisplayName("Part 2")
     inner class Part2 {
 
         @Test
         fun `Matches example`() = assertEquals(
-            expected = Unit,
-            actual = Day15(sampleInput).part2(),
+            expected = 56000011,
+            actual = Day15(sampleInput).part2(20),
         )
 
         @Test
         fun `Actual answer`() = assertEquals(
-            expected = Unit,
-            actual = Day15(actualInput).part2(),
+            expected = 10553942650264,
+            actual = Day15(actualInput).part2(4000000),
         )
 
     }

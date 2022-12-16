@@ -1,4 +1,5 @@
 import kotlin.math.absoluteValue
+import kotlin.math.max
 
 class Day15(input: List<String>) {
 
@@ -21,7 +22,11 @@ class Day15(input: List<String>) {
         }
     }.size
 
-    fun part2(): Unit = TODO()
+    fun part2(max: Int) = (0..max).asSequence()
+        .map { y -> sensorsToBeacons.mapNotNull { it.horizontalSpanAt(y = y) }.merge() }
+        .withIndex()
+        .first { (_, value) -> value.size > 1 }
+        .let { (index, value) -> (value.first().last + 1) * 4_000_000L + index }
 
     private open class Point(val x: Int, val y: Int)
     private class Beacon(x: Int, y: Int) : Point(x, y)
@@ -36,5 +41,12 @@ class Day15(input: List<String>) {
     private infix fun Point.distanceTo(other: Point) = ((x - other.x).absoluteValue) + ((y - other.y).absoluteValue)
 
     private fun IntRange.offset(value: Int) = IntRange(start + value, last + value)
+
+    private fun List<IntRange>.merge() = sortedBy(IntRange::first).foldInPlace(mutableListOf<IntRange>()) {
+        if (isEmpty()) add(it).also { return@foldInPlace }
+        val last = last()
+        if (it.first > last.last) add(it)
+        else this[size - 1] = last.first..max(last.last, it.last)
+    }
 
 }
