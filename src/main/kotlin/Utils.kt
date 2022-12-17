@@ -15,3 +15,5 @@ fun Iterable<Int>.product(): Long = fold(1L, Long::times)
 
 @JvmName("longProduct")
 fun Iterable<Long>.product(): Long = fold(1L, Long::times)
+
+fun <T> Sequence<T>.repeat() = sequence { while (true) yieldAll(this@repeat) }
